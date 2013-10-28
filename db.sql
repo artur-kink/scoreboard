@@ -4,13 +4,20 @@ use scoreboard;
 
 create table people(
 	id int primary key AUTO_INCREMENT,
-	name varchar(50) unique not null
+	name varchar(25) unique not null
 );
+
+create table event_status{
+    id int primary key AUTO_INCREMENT,
+    name nvarchar(25) unique not null
+};
 
 create table events(
 	id int primary key AUTO_INCREMENT,
 	name nvarchar(50) not null,
-	time datetime not null
+	time datetime not null,
+    status int not null,
+    foreign key (status) references event_status(id)
 );
 
 create table scores(

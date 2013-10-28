@@ -19,7 +19,7 @@ if($events){
     while($row = $events->fetch_object()){
     	echo "<tr>";
         echo "<td>" . $row->id . "</td>";
-        echo "<td>" . $row->name . "</td>";
+        echo "<td><a href='event.php?id=" . $row->id . "'>" . $row->name . "</a></td>";
        	echo "<td>" . $row->time . "</td>";
         echo "</tr>";
     }
