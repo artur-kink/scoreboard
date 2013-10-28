@@ -4,22 +4,33 @@
 <script language="javascript" type="text/javascript" src="jquery.min.js"></script>
 <script type="text/javascript">
 
+var scoreId = 1;
 function addScore(){
-    $("#scores").append($("#score_template").html());
+    var scores_template = $("#score_template").clone();
+    $(scores_template).children(0).children("#person").attr("name", "person" + scoreId);
+    $(scores_template).children(0).children("#score").attr("name", "score" + scoreId);
+    $("#scores").append($(scores_template).html());
+    scoreId++;
 }
 
 </script>
 </head>
 <?php
 require "db.php";
+//print_r($_POST);
 
 $name = $_POST["name"];
 if($name){
     $result = $mysqli->query("insert into events(name, time)" .
         "values('" . $name . "', NOW());");
-    echo $_POST;
-    header('Location: events.php');
-    exit();
+    foreach($_POST as $key => $value){
+        if(strpos($key, "person") === 0){
+            $result = $mysqli->query("insert into scores(eid, pid, score)" .
+                "values('" . 0 . "', " . $value . ", " . 0 . ");");
+        }
+    }
+    //header('Location: events.php');
+    //exit();
 }
 
 $people = $mysqli->query("select * from people");
