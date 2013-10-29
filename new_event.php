@@ -39,6 +39,10 @@ function addScore(){
     score_id++;
 }
 
+function removeScore(source){
+    $(source).parent().remove();
+}
+
 </script>
 </head>
 <body>
@@ -52,7 +56,7 @@ function addScore(){
             }
         ?>
     </select>
-    Score: <input id="score" name="score" type="text"/>
+    Score: <input id="score" name="score" type="text"/><a href="#" onclick="removeScore(this);">-</a>
 </div>
 </div>
 <form method="post" action="new_event.php">
