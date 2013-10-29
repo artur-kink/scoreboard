@@ -7,10 +7,10 @@ create table people(
 	name varchar(25) unique not null
 );
 
-create table event_status{
+create table event_status(
     id int primary key AUTO_INCREMENT,
     name nvarchar(25) unique not null
-};
+);
 
 create table events(
 	id int primary key AUTO_INCREMENT,
@@ -28,3 +28,10 @@ create table scores(
 	foreign key (eid) references event(id),
 	foreign key (pid) references people(id)
 );
+
+
+create view scores_view as(
+	select s.*, p.name
+	from scores s
+	inner join people p on s.pid = p.id
+)
