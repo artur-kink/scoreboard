@@ -27,7 +27,7 @@ if($name){
 $people = $mysqli->query("select * from people");
 ?>
 <title>Create new event.</title>
-<script language="javascript" type="text/javascript" src="jquery.min.js"></script>
+<script language="javascript" type="text/javascript" src="resources/scripts/jquery.min.js"></script>
 <script type="text/javascript">
 
 var score_id = 1;
@@ -63,7 +63,7 @@ function removeScore(source){
     <label for="name">Name:</label>
     <input id="name" name="name" type="text" />
 
-    <a href="#" onclick="addScore()">+</a>
+    <a href="#" onclick="addScore();">+</a>
     <div id="scores">
 
     </div>

@@ -12,6 +12,7 @@ if(!$event){
 $event = $event->fetch_object();
 $scores = $mysqli->query("select * from scores_view where eid = " . $event->id .";");
 ?>
+
 <body>
 <div id="event_name">
 <?php 

@@ -4,6 +4,7 @@
 require "db.php";
 ?>
 <body>
+<a href="new_event.php">New Event</a>
 <table>
 <thead>
     <tr>
@@ -26,4 +27,6 @@ if($events){
 }
 ?>
 </tbody>
+</table>
 </body>
+</html>
