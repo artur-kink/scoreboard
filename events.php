@@ -1,14 +1,16 @@
 <html>
-<head><title>Events</title></head>
+<head>
+    <link rel="stylesheet" href="style.css" type="text/css"/>
+    <title>Events</title>
+</head>
 <?php
 require "db.php";
 ?>
 <body>
-<a href="new_event.php">New Event</a>
+<a href="new_event.php"><img src="resources/images/add.png" width="16" height="16"/> New Event</a>
 <table>
 <thead>
     <tr>
-    <th>Id</th>
     <th>Name</th>
     <th>Date</th>
     </tr>
@@ -19,7 +21,6 @@ $events = $mysqli->query("select * from events;");
 if($events){
     while($row = $events->fetch_object()){
     	echo "<tr>";
-        echo "<td>" . $row->id . "</td>";
         echo "<td><a href='event.php?id=" . $row->id . "'>" . $row->name . "</a></td>";
        	echo "<td>" . $row->time . "</td>";
         echo "</tr>";
