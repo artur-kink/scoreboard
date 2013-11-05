@@ -30,6 +30,13 @@ $event = 0;
 $scores = 0;
 if(!$new){
     $id = $_GET["id"];
+
+    if($_GET["a"] == "d"){
+        $mysqli->query("delete from events where id = " . $id .";");
+        header('Location: events.php');
+        exit();
+    }
+
     $event = $mysqli->query("select * from events where id = " . $id .";");
     if(!$event){
         die("Event not found");
@@ -101,7 +108,7 @@ if($new){
 ?>
 ">
     <label for="name">Name:</label>
-    <input id="name" name="name" type="text"><?php echo $event->name; ?></input>
+    <input id="name" name="name" type="text" value="<?php echo $event->name; ?>" />
 
     <a href="#" onclick="addScore();">+</a>
     <div id="scores">
@@ -109,5 +116,11 @@ if($new){
     </div>
 
     <input type="submit" />
+<?php
+if(!$new){
+    echo "<a href='event.php?id=" . $event->id . "&a=d'>Delete</a>";
+}
+?>
+
 </form>
 </body>
