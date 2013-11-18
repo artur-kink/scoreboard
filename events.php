@@ -7,7 +7,7 @@
 require "db.php";
 ?>
 <body>
-<a href="new_event.php"><img src="resources/images/add.png" width="16" height="16"/> New Event</a>
+<a href="event.php"><img src="resources/images/add.png" width="16" height="16"/> New Event</a>
 <table>
 <thead>
     <tr>
